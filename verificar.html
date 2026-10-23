@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Verificação da loja · Resumos de Direito</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Jost:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+  <style>
+    .v { padding: 2.5rem 0 4rem; }
+    .v h1 { font-size: clamp(2.2rem, 1.6rem + 2.5vw, 3.2rem); margin-bottom: .75rem; }
+    .v-intro { max-width: 760px; color: var(--marrom-2); }
+    .v code { padding: .1em .35em; border-radius: 6px; background: var(--bege); font-size: .9em; }
+    .v-resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .85rem; margin: 2rem 0; }
+    .v-cartao { padding: 1rem 1.1rem; border: 1px solid var(--linha); border-radius: 14px; background: var(--papel); }
+    .v-cartao strong { display: block; font-family: var(--fonte-titulo); font-size: 2rem; line-height: 1.1; }
+    .v-cartao span { color: var(--marrom-3); font-size: .85rem; }
+    .v-bloco { margin: 2.25rem 0; }
+    .v-bloco h2 { font-size: 1.7rem; margin-bottom: .9rem; }
+    .v-lista { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+    .v-lista li { padding: .75rem 1rem; border-radius: 12px; border: 1px solid var(--linha); background: var(--papel); font-size: .95rem; }
+    .v-lista li.erro { border-color: #E2B4AE; background: #FBEDEB; }
+    .v-lista li.aviso { border-color: var(--dourado-claro); background: #FCF7EE; }
+    .v-lista li.ok { border-color: #CFE0C9; background: #F3F8F1; }
+    .v-tabela-caixa { overflow-x: auto; border: 1px solid var(--linha); border-radius: 14px; background: var(--papel); }
+    .v-tabela { width: 100%; min-width: 640px; border-collapse: collapse; font-size: .9rem; }
+    .v-tabela caption { padding: .9rem 1rem; text-align: left; font-family: var(--fonte-titulo); font-size: 1.35rem; font-weight: 600; }
+    .v-tabela th, .v-tabela td { padding: .6rem 1rem; border-top: 1px solid var(--linha); text-align: left; vertical-align: top; }
+    .v-tabela th { color: var(--marrom-3); font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+    .v-tabela td a { word-break: break-all; }
+    .v-situacao { display: inline-block; padding: .15em .65em; border-radius: 999px; font-size: .78rem; font-weight: 500; white-space: nowrap; }
+    .v-situacao.ok { background: #E4F0E0; color: #2F5A2A; }
+    .v-situacao.pendente { background: #FBF4E6; color: var(--dourado-texto); }
+    .v-situacao.preparacao { background: var(--bege); color: var(--marrom-2); }
+    .v-situacao.erro { background: #FBE3DF; color: #8E2F25; }
+    .v-situacao.aviso { background: #FFF1D6; color: #7A5413; }
+    .v-copiar { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+    .v-copiar code { word-break: break-all; }
+    .v-copiar button { min-height: 34px; padding: .3em .9em; border: 1px solid var(--linha); border-radius: 999px; background: var(--off); font: inherit; font-size: .8rem; cursor: pointer; }
+  </style>
+  <script src="config/loja.js" defer></script>
+  <script src="config/escrevente.js" defer></script>
+  <script src="js/nucleo.js" defer></script>
+  <script src="js/verificar.js" defer></script>
+</head>
+<body>
+  <main class="contem v">
+    <p class="sobretitulo">Área de conferência</p>
+    <h1>Verificação da loja</h1>
+    <p class="v-intro">Esta página lê <code>config/loja.js</code> e <code>config/escrevente.js</code> e mostra o que está ativo, o que está pendente e o que tem problema. Ela não é indexada pelo Google, mas é pública como o resto do site: não coloque aqui nada sigiloso. <a href="index.html">Voltar para a loja</a></p>
+    <div id="verificacao"><p>Carregando…</p></div>
+  </main>
+</body>
+</html>
