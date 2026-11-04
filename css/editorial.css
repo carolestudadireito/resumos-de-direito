@@ -33,13 +33,13 @@ h2 em { color: var(--rose-escuro); font-weight: 500; }
 .menu { gap: 1.5rem; }
 .menu ul { gap: 1.8rem; }
 .menu ul a { font-size: .85rem; }
-.menu ul a[href="#escrevente"] { color: var(--rose-escuro); font-weight: 600; background: var(--rose-nevoa); padding: 10px 14px; border-radius: 6px; }
+.menu ul a[href="#escrevente"], .menu ul a[href="#oficial"] { color: var(--rose-escuro); font-weight: 600; background: var(--rose-nevoa); padding: 10px 14px; border-radius: 6px; }
 .destaque-tjsp { background: var(--vinho); color: #fffefa; padding: 30px 0; }
 .destaque-tjsp__inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .destaque-tjsp__etiqueta { font-size: .65rem; text-transform: uppercase; letter-spacing: .15em; color: #e4cbd0; margin: 0 0 5px; }
 .destaque-tjsp__titulo { font-family: var(--fonte-titulo); font-size: clamp(2.6rem,4vw,3.5rem); line-height: 1.05; font-weight: 600; margin: 0; }
 .destaque-tjsp__descricao { font-size: .88rem; line-height: 1.6; color: #efe2e5; margin: 9px 0 0; }
-.destaque-tjsp__acoes { display: flex; flex-direction: column; align-items: center; gap: 10px; flex-shrink: 0; }
+.destaque-tjsp__acoes { display: flex; flex-direction: column; align-items: stretch; gap: 10px; flex-shrink: 0; }
 .destaque-tjsp .botao { --bg: #fffefa; --cor: #482d38; --borda: #fffefa; font-weight: 600; }
 .destaque-tjsp .botao:hover { --bg: #f2e6e8; }
 .destaque-tjsp__link { font-size: .72rem; color: #efe2e5; text-underline-offset: 4px; }
@@ -130,6 +130,15 @@ h2 em { color: var(--rose-escuro); font-weight: 500; }
 .escrevente-card__info > .botao { margin-top: auto; font-size: .8rem; }
 .escrevente-nota { display: flex; align-items: center; justify-content: center; gap: 9px; font-size: .76rem; color: var(--marrom-2); margin: 28px 0 0; }
 .escrevente-nota .ico { color: var(--rose); }
+/* Coleção de Oficial de Justiça: mesmos cartões, com o Material Completo deitado. */
+.colecao-oficial { background: var(--off); border-block: 0; }
+.colecao-oficial .escrevente-card { background: #fff; }
+.escrevente-grid.escrevente-grid--um { grid-template-columns: minmax(0,1fr); }
+.escrevente-card.escrevente-card--deitado { flex-direction: row; }
+.escrevente-card--deitado .escrevente-card__imagem { flex: 0 0 min(42%, 360px); }
+.escrevente-card--deitado .escrevente-card__info { justify-content: center; padding: 36px; }
+.escrevente-card--deitado .escrevente-card__info > .botao { margin-top: 0; align-self: flex-start; }
+.escrevente-card--deitado .escrevente-card__info h4 { margin: 0; font-family: var(--fonte-titulo); font-weight: 600; line-height: 1.15; }
 .secao--blush { background: var(--off); }
 .sobre { gap: 70px; align-items: center; }
 .sobre__texto > p:not(.sobretitulo) { font-size: .94rem; line-height: 1.8; }
@@ -234,6 +243,10 @@ h2 em { color: var(--rose-escuro); font-weight: 500; }
   .dcard__cta { font-size: .65rem; }
   .etiqueta { font-size: .48rem; padding: 4px 6px; }
   .escrevente-grid { grid-template-columns: 1fr; gap: 22px; }
+  .escrevente-card.escrevente-card--deitado { flex-direction: column; }
+  .escrevente-card--deitado .escrevente-card__imagem { flex: none; }
+  .escrevente-card--deitado .escrevente-card__info { padding: 22px; }
+  .escrevente-card--deitado .escrevente-card__info > .botao { align-self: stretch; }
   .escrevente-card__info { padding: 22px; }
   .escrevente-card__imagem img { width: 100%; }
   .escrevente-menu { gap: 7px; }
