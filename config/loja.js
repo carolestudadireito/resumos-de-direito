@@ -4,8 +4,8 @@
    Edite este arquivo para mudar os dados gerais, os contatos e as
    perguntas frequentes.
 
-   As MATÉRIAS DE ESCREVENTE TJSP, com imagens e links de checkout da
-   Eduzz, ficam em outro arquivo: config/escrevente.js
+   As MATÉRIAS DE CADA CARGO, com imagens e links de checkout da Eduzz,
+   ficam em outros arquivos: config/escrevente.js e config/oficial.js
 
    Regras simples para não quebrar nada:
    • Textos ficam sempre entre aspas: "assim".
@@ -30,9 +30,10 @@ window.LOJA_CONFIG = {
     tiktok: "https://www.tiktok.com/@carolballao",
     email: "carolestudadireito@gmail.com",
 
-    // Artes exibidas no topo da página (ids de config/escrevente.js).
+    // Artes exibidas no topo da página: ids de config/escrevente.js ou,
+    // com o prefixo "oficial-", ids de config/oficial.js.
     // As duas primeiras aparecem como capas; a terceira, como folha em destaque.
-    capasNoTopo: ["coletanea-lettering", "coletanea-classica", "portugues"],
+    capasNoTopo: ["coletanea-lettering", "coletanea-classica", "oficial-material-completo"],
   },
 
   /* ------------------------------------------------------------------
@@ -58,7 +59,7 @@ window.LOJA_CONFIG = {
   faq: [
     {
       pergunta: "Como faço para comprar?",
-      resposta: "Escolha uma matéria individual ou uma das coletâneas de Escrevente TJSP e clique em “Ver preço e comprar”. Você finaliza a compra no checkout da Eduzz.",
+      resposta: "Escolha o cargo, Escrevente ou Oficial de Justiça, selecione uma matéria individual ou a coleção completa e clique em “Ver preço e comprar”. Você finaliza a compra no checkout da Eduzz.",
     },
     {
       pergunta: "O pagamento é feito neste site?",
@@ -81,8 +82,16 @@ window.LOJA_CONFIG = {
       resposta: "Sim. Arquivos em PDF podem ser abertos no celular, no tablet ou no computador, em qualquer leitor de PDF.",
     },
     {
+      pergunta: "O material de Oficial de Justiça é o mesmo de Escrevente?",
+      resposta: "Não. Cada coleção segue o edital do próprio cargo. A de Oficial de Justiça traz Direito Civil, Legislação Especial e Prova Discursiva, e as demais matérias foram ajustadas ao edital do cargo. Confira a coleção do concurso que você vai prestar antes de comprar.",
+    },
+    {
+      pergunta: "As coleções completas vêm em um só arquivo?",
+      resposta: "No Escrevente, cada coletânea é um só PDF com as 12 matérias. No Oficial de Justiça, o Material Completo entrega os 12 cadernos em 12 arquivos PDF separados.",
+    },
+    {
       pergunta: "Qual é a diferença entre as versões lettering e clássica?",
-      resposta: "A versão lettering tem visual manuscrito e destaques coloridos; a versão clássica utiliza fontes tradicionais e apresentação sóbria. As matérias individuais estão em lettering, e as coletâneas reúnem as mesmas 12 matérias nas versões lettering e clássica, vendidas separadamente.",
+      resposta: "A versão lettering tem visual manuscrito e destaques coloridos; a versão clássica utiliza fontes tradicionais e apresentação sóbria. As matérias individuais estão em lettering. A versão clássica existe só na coletânea de Escrevente, vendida separadamente da coletânea em lettering; os materiais de Oficial de Justiça são todos em lettering.",
     },
     {
       pergunta: "Posso conhecer o material antes de comprar?",
@@ -90,7 +99,7 @@ window.LOJA_CONFIG = {
     },
     {
       pergunta: "Os materiais são atualizados?",
-      resposta: "Cada material informa a sua edição ou a data da última atualização. Se tiver dúvidas sobre novas edições, fale conosco pelo e-mail carolestudadireito@gmail.com antes da compra.",
+      resposta: "Cada material informa o edital em que se baseia. Se tiver dúvidas sobre novas edições, fale conosco pelo e-mail carolestudadireito@gmail.com antes da compra.",
     },
     {
       pergunta: "Não recebi o acesso. O que faço?",
