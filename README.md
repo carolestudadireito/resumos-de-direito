@@ -3,7 +3,7 @@
 Loja estática de materiais em PDF para os concursos do TJSP, com checkouts individuais na Eduzz:
 
 - **Escrevente:** 12 matérias em lettering e duas coletâneas (clássica e lettering), 14 checkouts.
-- **Oficial de Justiça:** 12 matérias em lettering e o Material Completo (12 PDFs), 13 checkouts.
+- **Oficial de Justiça:** 12 matérias em lettering, o Material Completo (12 PDFs) e a Coletânea clássica (um PDF), 14 checkouts.
 
 ## Prévia e publicação
 
