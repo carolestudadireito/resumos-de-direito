@@ -9,6 +9,13 @@ window.OFICIAL_CONFIG = [
     checkout: 'https://chk.eduzz.com/E0DK77XR91',
   },
   {
+    id: 'coletanea-classica', nome: 'Coletânea clássica', menu: 'Coletânea clássica', coletanea: true,
+    tipo: 'Oficial de Justiça TJSP · PDF em edição clássica',
+    imagem: 'assets/oficial/coletanea-classica.webp',
+    descricao: 'As 12 matérias reunidas em um só PDF, com fontes tradicionais, apresentação sóbria e sumário clicável, com lei seca, anotações, flashcards e 529 questões inéditas no estilo VUNESP, com gabarito comentado.',
+    checkout: 'https://chk.eduzz.com/7WXGXJPO0A',
+  },
+  {
     id: 'portugues', nome: 'Língua Portuguesa', menu: 'Português',
     imagem: 'assets/oficial/portugues.webp',
     descricao: 'Teoria organizada pelos 13 itens do edital, pegadinhas, quadros de revisão, flashcards e 50 questões inéditas com gabarito comentado.',

@@ -87,11 +87,11 @@ window.LOJA_CONFIG = {
     },
     {
       pergunta: "As coleções completas vêm em um só arquivo?",
-      resposta: "No Escrevente, cada coletânea é um só PDF com as 12 matérias. No Oficial de Justiça, o Material Completo entrega os 12 cadernos em 12 arquivos PDF separados.",
+      resposta: "No Escrevente, cada coletânea é um só PDF com as 12 matérias. No Oficial de Justiça, a Coletânea clássica é um só PDF, e o Material Completo, em lettering, entrega os 12 cadernos em 12 arquivos PDF separados.",
     },
     {
       pergunta: "Qual é a diferença entre as versões lettering e clássica?",
-      resposta: "A versão lettering tem visual manuscrito e destaques coloridos; a versão clássica utiliza fontes tradicionais e apresentação sóbria. As matérias individuais estão em lettering. A versão clássica existe só na coletânea de Escrevente, vendida separadamente da coletânea em lettering; os materiais de Oficial de Justiça são todos em lettering.",
+      resposta: "A versão lettering tem visual manuscrito e destaques coloridos; a versão clássica utiliza fontes tradicionais e apresentação sóbria. As matérias individuais estão em lettering. A versão clássica existe nas coleções completas de cada cargo, e cada versão é vendida separadamente.",
     },
     {
       pergunta: "Posso conhecer o material antes de comprar?",
