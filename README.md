@@ -1,6 +1,9 @@
 # Resumos de Direito
 
-Loja estática de materiais em PDF para o concurso de **Escrevente TJSP**: 12 matérias em lettering e duas coletâneas (clássica e lettering), com 14 checkouts individuais na Eduzz.
+Loja estática de materiais em PDF para os concursos do TJSP, com checkouts individuais na Eduzz:
+
+- **Escrevente:** 12 matérias em lettering e duas coletâneas (clássica e lettering), 14 checkouts.
+- **Oficial de Justiça:** 12 matérias em lettering e o Material Completo (12 PDFs), 13 checkouts.
 
 ## Prévia e publicação
 
@@ -14,9 +17,11 @@ Na prévia local, a faixa de diagnóstico mostra informações de configuração
 | --- | --- |
 | `config/loja.js` | Dados gerais, contatos, capas do topo e perguntas frequentes |
 | `config/escrevente.js` | Matérias, imagens e checkouts de Escrevente TJSP |
+| `config/oficial.js` | Matérias, imagens e checkouts de Oficial de Justiça TJSP |
 | `css/estilo.css` | Componentes e estilos básicos |
 | `css/editorial.css` | Identidade editorial e ajustes para celular |
 | `assets/escrevente/` | Artes das matérias de Escrevente em WebP |
+| `assets/oficial/` | Artes das matérias de Oficial de Justiça em WebP |
 
 Os preços são exibidos na Eduzz.
 
