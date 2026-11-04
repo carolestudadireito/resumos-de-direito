@@ -1,8 +1,8 @@
 /* =====================================================================
    Resumos de Direito · montagem da vitrine
    Monta as capas do topo, as perguntas frequentes, os contatos e o menu
-   a partir de config/loja.js e config/escrevente.js.
-   Os cartões de Escrevente TJSP são montados por js/escrevente.js.
+   a partir de config/loja.js, config/escrevente.js e config/oficial.js.
+   Os cartões são montados por js/escrevente.js e js/oficial.js.
    Para mudar conteúdo, edite os arquivos da pasta config/.
    ===================================================================== */
 (function () {
@@ -16,7 +16,8 @@
   const $ = (seletor, raiz = document) => raiz.querySelector(seletor);
   const $$ = (seletor, raiz = document) => Array.from(raiz.querySelectorAll(seletor));
   const materias = Array.isArray(window.ESCREVENTE_CONFIG) ? window.ESCREVENTE_CONFIG : [];
-  const porId = new Map(materias.map((m) => [m.id, m]));
+  const oficial = Array.isArray(window.OFICIAL_CONFIG) ? window.OFICIAL_CONFIG : [];
+  const porId = new Map(materias.map((m) => [m.id, m]).concat(oficial.map((m) => ['oficial-' + m.id, m])));
 
   function ico(nome, classe) {
     const id = nome && document.getElementById('i-' + nome) ? nome : 'balanca';
@@ -127,8 +128,10 @@
     const itens = [];
     if (!window.LOJA_CONFIG) itens.push('<strong>Erro ao ler config/loja.js</strong> (confira aspas e vírgulas)');
     if (!window.ESCREVENTE_CONFIG) itens.push('<strong>Erro ao ler config/escrevente.js</strong> (confira aspas e vírgulas)');
-    const ativos = materias.filter((m) => L.analisarCheckout(m.checkout).ok).length;
-    itens.push(`${ativos} de ${materias.length} botões de compra ativos`);
+    if (!window.OFICIAL_CONFIG) itens.push('<strong>Erro ao ler config/oficial.js</strong> (confira aspas e vírgulas)');
+    const todos = materias.concat(oficial);
+    const ativos = todos.filter((m) => L.analisarCheckout(m.checkout).ok).length;
+    itens.push(`${ativos} de ${todos.length} botões de compra ativos`);
     if (!L.linkWhatsapp()) itens.push('WhatsApp não configurado');
     aviso.innerHTML = `<strong>Pré-visualização local</strong> (esta faixa não aparece no site publicado) · ${itens.join(' · ')} · <a href="verificar.html">Abrir verificação</a>`;
     aviso.hidden = false;

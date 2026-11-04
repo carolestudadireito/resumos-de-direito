@@ -1,6 +1,6 @@
 /* =====================================================================
    Resumos de Direito · página de conferência (verificar.html)
-   Mostra, para cada matéria e coletânea de Escrevente TJSP, se o botão
+   Mostra, para cada matéria e coleção de cada cargo, se o botão
    de compra está ativo, pendente ou com problema no link.
    ===================================================================== */
 (function () {
@@ -20,23 +20,26 @@
 
   if (!window.LOJA_CONFIG) anotar('erro', 'O arquivo <code>config/loja.js</code> não pôde ser lido. Provável erro de digitação: confira aspas, vírgulas e chaves perto da última alteração.');
   if (!window.ESCREVENTE_CONFIG) anotar('erro', 'O arquivo <code>config/escrevente.js</code> não pôde ser lido. Provável erro de digitação: confira aspas, vírgulas e chaves perto da última alteração.');
+  if (!window.OFICIAL_CONFIG) anotar('erro', 'O arquivo <code>config/oficial.js</code> não pôde ser lido. Provável erro de digitação: confira aspas, vírgulas e chaves perto da última alteração.');
 
-  const materias = Array.isArray(window.ESCREVENTE_CONFIG) ? window.ESCREVENTE_CONFIG : [];
+  const escrevente = (Array.isArray(window.ESCREVENTE_CONFIG) ? window.ESCREVENTE_CONFIG : []).map((m) => Object.assign({ cargo: 'Escrevente', chave: m.id, ancora: 'escrevente-' + m.id }, m));
+  const oficial = (Array.isArray(window.OFICIAL_CONFIG) ? window.OFICIAL_CONFIG : []).map((m) => Object.assign({ cargo: 'Oficial de Justiça', chave: 'oficial-' + m.id, ancora: 'oficial-' + m.id }, m));
+  const materias = escrevente.concat(oficial);
 
   /* ---------- Conferência da configuração ---------- */
 
   const ids = new Set();
   materias.forEach((m, i) => {
     if (!m || !m.id) { anotar('erro', `O item nº ${i + 1} de <code>config/escrevente.js</code> está sem <code>id</code>.`); return; }
-    if (ids.has(m.id)) anotar('erro', `O id <code>${esc(m.id)}</code> aparece em mais de um item.`);
-    ids.add(m.id);
+    if (ids.has(m.chave)) anotar('erro', `O id <code>${esc(m.id)}</code> aparece em mais de um item de ${esc(m.cargo)}.`);
+    ids.add(m.chave);
     if (!/^[a-z0-9-]+$/.test(m.id)) anotar('aviso', `O id <code>${esc(m.id)}</code> deve ter só letras minúsculas sem acento, números e hífens.`);
     if (!m.imagem) anotar('aviso', `${esc(m.nome || m.id)}: sem imagem cadastrada.`);
   });
 
   const loja = config.loja || {};
   (Array.isArray(loja.capasNoTopo) ? loja.capasNoTopo : []).forEach((id) => {
-    if (!ids.has(id)) anotar('aviso', `<code>capasNoTopo</code> cita <code>${esc(id)}</code>, que não existe em <code>config/escrevente.js</code>.`);
+    if (!ids.has(id)) anotar('aviso', `<code>capasNoTopo</code> cita <code>${esc(id)}</code>, que não existe nas configurações de matérias.`);
   });
 
   if (L.linkWhatsapp()) anotar('ok', 'WhatsApp configurado.');
@@ -84,7 +87,7 @@
     return `
       <tr>
         <td>${esc(m.nome || m.id)}</td>
-        <td>${m.coletanea ? 'Coletânea' : 'Matéria'}</td>
+        <td>${esc(m.cargo)} · ${m.coletanea ? 'Coleção' : 'Matéria'}</td>
         <td><span class="v-situacao ${classe}">${esc(texto)}</span></td>
         <td>${link}</td>
       </tr>`;
@@ -99,7 +102,10 @@
     ['Conheça meus materiais', base],
     ['Escrevente TJSP', base + '#escrevente'],
     ['Coletâneas de Escrevente TJSP', base + '#coletaneas-titulo'],
-  ].concat(materias.map((m) => [m.nome || m.id, base + '#escrevente-' + m.id]));
+    ['Oficial de Justiça TJSP', base + '#oficial'],
+    ['Material Completo de Oficial de Justiça', base + '#oficial-material-completo'],
+    ['Matérias de Oficial de Justiça', base + '#materias-oficial-titulo'],
+  ].concat(materias.map((m) => [`${m.nome || m.id} · ${m.cargo}`, base + '#' + m.ancora]));
   const zap = L.linkWhatsapp();
   if (zap) enderecos.splice(3, 0, ['Dúvidas? Entre em contato', zap]);
 
@@ -114,7 +120,7 @@
       <div class="v-cartao"><strong>${materias.length - ativos - comErro}</strong><span>itens sem checkout (em breve)</span></div>
       <div class="v-cartao"><strong>${comErro}</strong><span>links com problema</span></div>
       <div class="v-cartao"><strong>${materias.filter((m) => !m.coletanea).length}</strong><span>matérias individuais</span></div>
-      <div class="v-cartao"><strong>${materias.filter((m) => m.coletanea).length}</strong><span>coletâneas</span></div>
+      <div class="v-cartao"><strong>${materias.filter((m) => m.coletanea).length}</strong><span>coleções completas</span></div>
     </div>
 
     <section class="v-bloco" aria-labelledby="v-avisos">
@@ -124,10 +130,10 @@
     </section>
 
     <section class="v-bloco" aria-labelledby="v-produtos">
-      <h2 id="v-produtos">Escrevente TJSP · produtos e links</h2>
+      <h2 id="v-produtos">Produtos e links</h2>
       <div class="v-tabela-caixa v-bloco">
         <table class="v-tabela">
-          <caption>Matérias e coletâneas</caption>
+          <caption>Matérias e coleções</caption>
           <thead><tr><th scope="col">Produto</th><th scope="col">Tipo</th><th scope="col">Situação</th><th scope="col">Link de checkout</th></tr></thead>
           <tbody>${linhas.join('')}</tbody>
         </table>
