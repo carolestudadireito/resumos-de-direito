@@ -130,15 +130,10 @@ h2 em { color: var(--rose-escuro); font-weight: 500; }
 .escrevente-card__info > .botao { margin-top: auto; font-size: .8rem; }
 .escrevente-nota { display: flex; align-items: center; justify-content: center; gap: 9px; font-size: .76rem; color: var(--marrom-2); margin: 28px 0 0; }
 .escrevente-nota .ico { color: var(--rose); }
-/* Coleção de Oficial de Justiça: mesmos cartões, com o Material Completo deitado. */
+/* Coleção de Oficial de Justiça: mesmos cartões do Escrevente, em fundo mais claro. */
 .colecao-oficial { background: var(--off); border-block: 0; }
 .colecao-oficial .escrevente-card { background: #fff; }
-.escrevente-grid.escrevente-grid--um { grid-template-columns: minmax(0,1fr); }
-.escrevente-card.escrevente-card--deitado { flex-direction: row; }
-.escrevente-card--deitado .escrevente-card__imagem { flex: 0 0 min(42%, 360px); }
-.escrevente-card--deitado .escrevente-card__info { justify-content: center; padding: 36px; }
-.escrevente-card--deitado .escrevente-card__info > .botao { margin-top: 0; align-self: flex-start; }
-.escrevente-card--deitado .escrevente-card__info h4 { margin: 0; font-family: var(--fonte-titulo); font-weight: 600; line-height: 1.15; }
+.colecao-oficial .escrevente-card__info h4 { margin: 0; font-family: var(--fonte-titulo); font-weight: 600; line-height: 1.15; }
 .secao--blush { background: var(--off); }
 .sobre { gap: 70px; align-items: center; }
 .sobre__texto > p:not(.sobretitulo) { font-size: .94rem; line-height: 1.8; }
@@ -243,10 +238,6 @@ h2 em { color: var(--rose-escuro); font-weight: 500; }
   .dcard__cta { font-size: .65rem; }
   .etiqueta { font-size: .48rem; padding: 4px 6px; }
   .escrevente-grid { grid-template-columns: 1fr; gap: 22px; }
-  .escrevente-card.escrevente-card--deitado { flex-direction: column; }
-  .escrevente-card--deitado .escrevente-card__imagem { flex: none; }
-  .escrevente-card--deitado .escrevente-card__info { padding: 22px; }
-  .escrevente-card--deitado .escrevente-card__info > .botao { align-self: stretch; }
   .escrevente-card__info { padding: 22px; }
   .escrevente-card__imagem img { width: 100%; }
   .escrevente-menu { gap: 7px; }
