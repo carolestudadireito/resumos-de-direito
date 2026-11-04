@@ -11,7 +11,7 @@
   function card(m) {
     const checkout = L.analisarCheckout(m.checkout);
     const heading = m.coletanea ? 'h4' : 'h3';
-    return `<li><article class="escrevente-card${m.coletanea ? ' escrevente-card--deitado' : ''}" id="oficial-${esc(m.id)}">
+    return `<li><article class="escrevente-card" id="oficial-${esc(m.id)}">
       <div class="escrevente-card__imagem"><img src="${esc(L.urlSegura(m.imagem))}" alt="Arte do material de ${esc(m.nome)} para Oficial de Justiça TJSP" width="720" height="900" loading="lazy" decoding="async"></div>
       <div class="escrevente-card__info"><p class="escrevente-card__tipo">${esc(m.tipo || 'Oficial de Justiça TJSP · PDF em lettering')}</p>
       <${heading}>${esc(m.nome)}</${heading}><p>${esc(m.descricao)}</p>
